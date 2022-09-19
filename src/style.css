@@ -1,0 +1,145 @@
+html, body {
+  height: 100%;
+}
+
+#root {
+  --background-color: #F0F8FF;
+  --black: rgb(30, 30, 30);
+  --dark-gray: #8d9297;
+  --light-gray: #bbc3cb;
+  --blue: #4E7CA6;
+  --red: rgb(232, 69, 69);
+  --green: rgba(21, 191, 95, 0.908);
+
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--black);
+}
+
+.container {
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  color: var(--black);
+  max-width: 1200px;
+  padding: 18px;
+  margin: 0 auto;
+}
+
+.main {
+  height: calc(100% - 78px);
+}
+
+.form {
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  color: var(--dark-gray);
+}
+
+.text-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100% - 200px);
+}
+
+.text-with-title-block {
+  width: calc(50% - 32px);
+  height: 100%;
+}
+
+.title-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 2px solid var(--blue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.change-lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 28px;
+  margin-top: 8px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+}
+
+.change-lang:hover {
+  animation: hoverChangeLangButton 200ms linear;
+}
+
+.change-lang--clicked {
+  transform: rotate(360deg);
+  transition: transform .5s;
+}
+
+.text-field {
+  width: 100%;
+  height: calc(100% - 50px);
+  padding: 10px;
+  font-size: 22px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: white;
+  border: 2px solid var(--blue);
+  overflow: auto;
+}
+
+.word {
+  white-space: pre-wrap;
+}
+
+.word--err {
+  font-weight: bold;
+  color: var(--red);
+}
+
+.info-block {
+  font-size: 18px
+}
+
+.count-bugs {
+  font-weight: bold;
+  color: var(--red);
+}
+.count-bugs--zero {
+  color: var(--green);
+}
+
+.button {
+  display: block;
+  margin-top: 8px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--light-gray);
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+
+@keyframes hoverChangeLangButton {
+  from { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg);}
+  to {transform: rotate(0); }
+}
