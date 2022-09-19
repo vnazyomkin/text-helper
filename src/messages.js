@@ -2,7 +2,7 @@ import { Language } from "./constants"
 import { changeLang } from "./helpers"
 
 const TextHelperMessage = {
-  PAGE_TITLE: "Кириллица VS латиница",
+  PAGE_TITLE: "Кириллица VS Латиница",
   [Language.RUSSIAN]: "Русский",
   [Language.ENGLISH]: 'Английский',
   [`${Language.RUSSIAN}S`]: "русские",
