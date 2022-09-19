@@ -14,7 +14,7 @@ const TextHelperMessage = {
   WRITE_TEXT: 'Введите текст',
   COUNT_BUGS: 'Количество опечаток: ',
   AUTO_FIX_BUGS: 'Автоисправление опечаток',
-  AUTO_FIX_BUGS_DESCRIPTION: lang => `Замена ${TextHelperMessage[lang + '_GENITIVE']} букв в тексте на ${TextHelperMessage[`${changeLang(lang)}S`]}, похожие по написанию (о, а, р и т.д)`,
+  AUTO_FIX_BUGS_DESCRIPTION: lang => `Замена ${TextHelperMessage[changeLang(lang) + '_GENITIVE']} букв в тексте на ${TextHelperMessage[`${lang}S`]}, похожие по написанию (о, а, р и т.д)`,
 }
 
 export { TextHelperMessage }

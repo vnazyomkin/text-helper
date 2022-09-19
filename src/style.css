@@ -10,6 +10,7 @@ html, body {
   --blue: #4E7CA6;
   --red: rgb(232, 69, 69);
   --green: rgba(21, 191, 95, 0.908);
+  --tablet: 768px;
 
   height: 100%;
   background-color: var(--background-color);
@@ -142,4 +143,20 @@ html, body {
   from { transform: rotate(-15deg); }
   50% { transform: rotate(15deg);}
   to {transform: rotate(0); }
+}
+
+@media screen and (max-width: 900px) {
+  .text-block {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .text-with-title-block {
+    width: 100%;
+  }
+
+  .change-lang {
+    margin-bottom: 8px;
+  }
 }
