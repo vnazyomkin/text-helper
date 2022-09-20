@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { changeLang, fixText } from '../helpers';
 import { TextHelperMessage } from '../messages';
 import Container from '../components/Container';
@@ -6,6 +6,8 @@ import TextWithTitle from '../components/TextWithTitle';
 import { Language, Regex } from '../constants';
 
 const TextHelper = () => {
+  const textField = useRef()
+  const resultField = useRef()
   const [textFieldValue, setTextFieldValue] = useState('')
   const [chosenLang, setChosenLang] = useState(Language.RUSSIAN)
   const [isAnimationProcessing, setIsAnimationProcessing] = useState(false)
@@ -24,19 +26,20 @@ const TextHelper = () => {
       <form className="form">
         <div className="text-block">
           <TextWithTitle title={TextHelperMessage[chosenLang]}>
-            <textarea 
+            <textarea
+              ref={textField}
               className="text-field"
               placeholder={TextHelperMessage.WRITE_TEXT}
               name="text"
               value={textFieldValue}
               onChange={({ target }) => setTextFieldValue(target.value)}
+              onScroll={() => resultField.current.scrollTop = textField.current.scrollTop}
             />
           </TextWithTitle>
           {/* TODO сделать скролл и совместный скролл */}
           {/* TODO переходы по ошибкам */}
-          {/* TODO историю вводов */}
           {/* TODO ctrl A не работает */}
-          {/* TODO адаптивность добаить */}
+          {/* TODO улучшить адаптивность*/}
           <div
             className={`change-lang${isAnimationProcessing ? ' change-lang--clicked' : ''}`}
             onClick={() => {
@@ -48,7 +51,13 @@ const TextHelper = () => {
             {TextHelperMessage.CHANGE_LANG_ICON}
           </div>
           <TextWithTitle title={TextHelperMessage.SEARCH_WRONG_WORD(chosenLang)}>
-            <div className="text-field">{resultText}</div>
+            <div 
+              className="text-field"
+              ref={resultField}
+              onScroll={() => textField.current.scrollTop = resultField.current.scrollTop}
+            >
+              {resultText}
+            </div>
           </TextWithTitle>
         </div>
         <div className="info-block">
